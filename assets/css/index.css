@@ -1,0 +1,53 @@
+.navbar{
+    border-bottom: 1px solid gainsboro;
+}
+.navbar-collapse > form > button {
+    width: 30%;
+}
+.article-categ-img{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    width: 5rem;
+    height: 5rem;
+}
+.latest-article-img{
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 3%;
+    border: 1px solid gainsboro;
+    width: 19rem;
+    height: 13rem;
+    object-fit: cover;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+.articleCard{
+    height:100%;
+}
+.comment-img, .user-img{
+    width: 1.3rem;
+    height: 1.3rem;
+}
+.categCard{
+    height:100%;
+}
+.subsribe{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.subsribe > form > button{
+    width: 5rem;
+}
+
+.social-media > a > img{
+    width: 7%;
+    height: 7%;
+}
+
+.footerbar{
+    border-top: 1px solid gainsboro;
+}
+
