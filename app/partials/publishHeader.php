@@ -9,6 +9,9 @@
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL . '/index.php'?>">主页</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo BASE_URL . '/admin/articles/publish.php'?>">发表文章</a>
+            </li>
         <ul class="navbar-nav  my-4 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <?php if(isset($_SESSION['id'])): ?>
                 <li class="nav-item dropdown">

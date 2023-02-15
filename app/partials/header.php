@@ -30,6 +30,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo BASE_URL . '/living.php'?>">生活</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo BASE_URL . '/about.php'?>">关于本站</a>
+            </li>
         </ul>
         <ul class="navbar-nav  my-4 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
