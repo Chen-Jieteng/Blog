@@ -33,7 +33,7 @@
         </ul>
         <ul class="navbar-nav  my-4 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo BASE_URL . '/admin/index.php'?>">发表文章</a>
+                <a class="nav-link" href="<?php echo BASE_URL . '/admin/articles/publish.php'?>">发表文章</a>
             </li>
             <?php if(isset($_SESSION['id'])): ?>
                 <li class="nav-item dropdown">

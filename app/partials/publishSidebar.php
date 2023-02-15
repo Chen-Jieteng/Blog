@@ -2,7 +2,7 @@
     <div class="header-box px-2 pt-4">
         <?php if(isset($_SESSION['id'])): ?>
             <div class="pb-5">
-                <img class="user-img" src="./assets/images/userprofile.png" alt="" style="width:3rem; height:3rem;">
+                <img class="user-img" src="<?php echo BASE_URL . '/assets/images/userprofile.png'?>" alt="" style="width:3rem; height:3rem;">
                 <h3><?php echo $_SESSION['username']; ?></h3> 
             </div>
             

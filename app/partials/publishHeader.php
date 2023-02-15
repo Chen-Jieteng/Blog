@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="index.php">芥尘的数据仓库</a>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="<?php echo BASE_URL . '/index.php'?>">芥尘的数据仓库</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -7,9 +8,6 @@
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL . '/index.php'?>">主页</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo BASE_URL . '/publish.php'?>">发表文章</a>
             </li>
         <ul class="navbar-nav  my-4 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <?php if(isset($_SESSION['id'])): ?>
@@ -50,4 +48,4 @@
             </li>
         </ul>
     </div>
-</nav>
+    </nav>
