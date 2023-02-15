@@ -7,10 +7,10 @@
             </div>
             
             <ul class="list-unstyled px-2 text-muted">
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/articleList.php'?>" class="text-deoration-none">发过的文章</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/liveList.php'?>" class="text-deoration-none">发过的动态</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/projectList.php'?>" class="text-deoration-none">发过的项目</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/userProfile.php'?>" class="text-deoration-none">用户设置</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/list.php'?>" class="text-deoration-none">发过的文章</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/list.php'?>" class="text-deoration-none">发过的动态</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/list.php'?>" class="text-deoration-none">发过的项目</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/userprofile.php'?>" class="text-deoration-none">用户设置</a></li>
             </ul>
         <?php else: ?>
             <div class="pt-5">

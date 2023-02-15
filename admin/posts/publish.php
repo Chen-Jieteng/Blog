@@ -42,7 +42,7 @@ include(ROOT_PATH . "/app/controllers/users.php");
         <div class="container-fluid">
             <?php include(ROOT_PATH . "/app/partials/publishHeader.php");?>
             <div class="main-container d-flex" >
-                <?php include(ROOT_PATH . "/app/partials/publishSidebar.php");?>
+                <?php include(ROOT_PATH . "/app/partials/manageSidebar.php");?>
                 <div style="margin:5% 0% 0% 5%;">
                     <h4>发过的文章</h4>  
                     <table class="table">
@@ -53,14 +53,12 @@ include(ROOT_PATH . "/app/controllers/users.php");
                                 <th scope="col">访问量</th>
                                 <th scope="col">发布时间</th>
                                 <th scope="col">修改时间</th>
+                                <th scope="col">操作</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
                             <tr>
-                                <th scope="row">
-                                    <a href="<?php echo BASE_URL . '/admin/articles/edit.php'?>">
-                                        利用IBM Watson Studio系统预测以及分析未来房价
-                                    </a>
+                                <th scope="row">利用IBM Watson Studio系统预测以及分析未来房价
                                     <div class="link-bottom-line row">
                                         <div class="col-md-3">
                                             <span style="background-color:dodgerblue;"></span>   
@@ -76,6 +74,9 @@ include(ROOT_PATH . "/app/controllers/users.php");
                                 <td>0</td>
                                 <td>2022-12-26</td>
                                 <td>2022-12-26</td>
+                                <td>
+                                    <a href="<?php echo BASE_URL . '/admin/articles/edit.php'?>">删除</a>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">阿伊努族语言的扩张与濒危，及其语法变化
@@ -90,6 +91,9 @@ include(ROOT_PATH . "/app/controllers/users.php");
                                 <td>0</td>
                                 <td>2022-12-26</td>
                                 <td>2022-12-26</td>
+                                <td>
+                                    <a href="<?php echo BASE_URL . '/admin/articles/edit.php'?>">删除</a>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">记录：校园技术和生活支持的软件设计小项目                    
@@ -108,6 +112,9 @@ include(ROOT_PATH . "/app/controllers/users.php");
                                 <td>0</td>
                                 <td>2022-12-26</td>
                                 <td>2022-12-26</td>
+                                <td>
+                                    <a href="<?php echo BASE_URL . '/admin/articles/edit.php'?>">删除</a>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">对AWS Route53服务所创建域名失效的故障排除和解决方案
@@ -130,6 +137,9 @@ include(ROOT_PATH . "/app/controllers/users.php");
                                 <td>0</td>
                                 <td>2022-12-26</td>
                                 <td>2022-12-26</td>
+                                <td>
+                                    <a href="<?php echo BASE_URL . '/admin/articles/edit.php'?>">删除</a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
