@@ -21,8 +21,8 @@ include(ROOT_PATH . "/app/database/db.php");
         <body>
             <div class="container-fluid">
                 <!--这里是Navigation-->
-                <?php include(ROOT_PATH . "/partials/header.php");?>
-                <?php include(ROOT_PATH . "/partials/messages.php");?>
+                <?php include(ROOT_PATH . "/app/partials/header.php");?>
+                <?php include(ROOT_PATH . "/app/partials/messages.php");?>
                 <!--这里是头条-->
 
                 <div class="container-fluid">
@@ -98,7 +98,7 @@ include(ROOT_PATH . "/app/database/db.php");
 
                 <!--这里是最近发布栏-->
                 <?php include("./app/database/connect.php");?>
-                <?php include(ROOT_PATH . "/partials/latestArticle.php") ?>
+                <?php include(ROOT_PATH . "/app/partials/latestArticle.php") ?>
                 <!--这里是自我介绍-->
                 <!--这里是订阅-->
                 <div class="row pt-5 pb-5 text-light">
@@ -120,7 +120,7 @@ include(ROOT_PATH . "/app/database/db.php");
                   </div>
                 </div>
                 <!--这里是footers-->
-                <?php include(ROOT_PATH . "/partials/footer.php");?>
+                <?php include(ROOT_PATH . "/app/partials/footer.php");?>
             </div>
         </body>
     </html>

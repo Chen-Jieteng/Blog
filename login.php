@@ -20,7 +20,7 @@
 
         <!-- HTML codes -->
         <div class="container-fluid">
-            <?php include(ROOT_PATH . "/partials/header.php");?>
+            <?php include(ROOT_PATH . "/app/partials/header.php");?>
             <div id="login-form">
             
                 <form action="login.php" method="POST">
@@ -42,7 +42,7 @@
                     <p>或者<a href="<?php echo BASE_URL . '/signup.php'?>">注册</a></p>
                 </form>
             </div>
-            <?php include(ROOT_PATH . "/partials/footer.php");?>
+            <?php include(ROOT_PATH . "/app/partials/footer.php");?>
         </div>
     </body>
 </html>

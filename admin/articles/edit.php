@@ -2,11 +2,11 @@
     <h5 class="card-header">文章修改编辑</h5>
     <div class="card-body">
         <h5 class="card-title">
-            <input type="text" class="form-control" id="title" placeholder="修改的题目">
+            <input type="text" class="form-control" id="title" placeholder="标题，最多20字">
             <small class="text-muted">0/20</small>
         </h5>
         <p class="card-text">
-            <textarea class="form-control" id="articletext" rows="3" placeholder="所修改的内容"></textarea>
+            <textarea class="form-control" id="articletext" rows="3" placeholder="此刻你想给大家分享什么？"></textarea>
         </p>
         <a href="#" class="btn btn-primary">图片</a> 
         <a href="#" class="btn btn-primary">话题</a> 

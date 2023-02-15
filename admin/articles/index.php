@@ -21,12 +21,12 @@
         
         <!-- HTML codes -->
         <div class="container-fluid">
-            <?php include(ROOT_PATH . "/partials/publishHeader.php");?>
+            <?php include(ROOT_PATH . "/app/partials/publishHeader.php");?>
             <div class="main-container d-flex" style="background-color:#f7f8fa">
-                <?php include(ROOT_PATH . "/partials/publishSidebar.php");?>  
+                <?php include(ROOT_PATH . "/app/partials/publishSidebar.php");?>  
                 <?php include(ROOT_PATH . "/admin/articles/articleCreate.php");?>      
             </div>
-            <?php include(ROOT_PATH . "/partials/footer.php");?>
+            <?php include(ROOT_PATH . "/app/partials/footer.php");?>
         </div>
     </body>
 </html>

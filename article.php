@@ -32,7 +32,7 @@
             ?>
             <!-- HTML codes -->
             <div class="container-fluid">
-                <?php include(ROOT_PATH . "/partials/header.php");?>
+                <?php include(ROOT_PATH . "/app/partials/header.php");?>
                 <div class="container-fluid">
                     <div class="row text-light mt-3 mb-3" style="background-color:plum">
                         <div class="col-md-2 pt-3">
@@ -102,7 +102,7 @@
                 </div>
                     
                 <!--这里是最近发布栏-->
-                <?php include(ROOT_PATH . "/partials/latestArticle.php") ?>
+                <?php include(ROOT_PATH . "/app/partials/latestArticle.php") ?>
             <!--这里是订阅-->
             <div class="row pt-5 pb-5 text-light">
                 <div class="col-md-12" style="background-color:cornflowerblue">
@@ -122,6 +122,6 @@
                     </div>
                 </div>
             </div>
-            <?php include(ROOT_PATH . "/partials/footer.php");?>
+            <?php include(ROOT_PATH . "/app/partials/footer.php");?>
         </body>
     </html>
