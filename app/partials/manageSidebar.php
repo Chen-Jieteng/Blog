@@ -7,12 +7,12 @@
             </div>
             
             <ul class="list-unstyled px-2 text-muted">
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/users/publish.php'?>" class="text-deoration-none">发布管理</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/users/list.php'?>" class="text-deoration-none">用户列表</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/users/edit.php'?>" class="text-deoration-none">用户管理</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/users/list.php'?>" class="text-deoration-none">标签管理</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/users/managerSetting.php'?>" class="text-deoration-none">管理员设置</a></li>
+                <li class="pb-2"><a href="<?php echo BASE_URL . '/admin/articles/list.php'?>" class="text-deoration-none">发布管理</a></li>
+                <li class="pb-2"><a href="<?php echo BASE_URL . '/admin/users/list.php'?>" class="text-deoration-none">用户列表</a></li>
+                <li class="pb-2"><a href="<?php echo BASE_URL . '/admin/users/edit.php'?>" class="text-deoration-none">用户添加</a></li>
+                <li class="pb-2"><a href="<?php echo BASE_URL . '/admin/users/edit.php'?>" class="text-deoration-none">标签列表</a></li>
+                <li class="pb-2"><a href="<?php echo BASE_URL . '/admin/topics/create.php'?>" class="text-deoration-none">标签添加</a></li>
+                <li class="pb-2"><a href="<?php echo BASE_URL . '/admin/users/managerSetting.php'?>" class="text-deoration-none">管理员设置</a></li>
             </ul>
         <?php else: ?>
             <div class="pt-5">
