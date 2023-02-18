@@ -44,7 +44,7 @@ include(ROOT_PATH . "/app/controllers/users.php");
             <div class="main-container d-flex" >
                 <?php include(ROOT_PATH . "/app/partials/adminSidebar.php");?>
                 <div style="margin:5% 0% 0% 5%;">
-                    <h4>标签列表</h4>  
+                    <h4>所有文章</h4>  
                     <table class="table">
                         <thead>
                             <tr>

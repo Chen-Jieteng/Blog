@@ -40,9 +40,9 @@ include(ROOT_PATH . "/app/controllers/topics.php");
     </head>
     <body>
         <div class="container-fluid">
-            <?php include(ROOT_PATH . "/app/partials/publishHeader.php");?>
+            <?php include(ROOT_PATH . "/app/partials/adminHeader.php");?>
             <div class="main-container d-flex" >
-                <?php include(ROOT_PATH . "/app/partials/manageSidebar.php");?>
+                <?php include(ROOT_PATH . "/app/partials/adminSidebar.php");?>
                 <div style="margin:5% 0% 0% 5%;">
                     <h4>添加主题标签</h4>  
                     <form>
