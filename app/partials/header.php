@@ -13,30 +13,30 @@
                     文章
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/list.php'?>">技术笔记</a></li>
-                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/list.php'?>">数据科学</a></li>
-                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/list.php'?>">UI设计</a></li>
-                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/list.php'?>">自然语言</a></li>
+                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>">技术笔记</a></li>
+                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>">数据科学</a></li>
+                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>">UI设计</a></li>
+                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>">自然语言</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/list.php'?>">其他文章</a></li>
+                    <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>">其他文章</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo BASE_URL . '/resume.php'?>">简历</a>
+                <a class="nav-link" href="<?php echo BASE_URL . '/dashboard/publish/resume.php'?>">简历</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo BASE_URL . '/project.php'?>">项目</a>
+                <a class="nav-link" href="<?php echo BASE_URL . '/dashboard/publish/project.php'?>">项目</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo BASE_URL . '/living.php'?>">生活</a>
+                <a class="nav-link" href="<?php echo BASE_URL . '/dashboard/publish/living.php'?>">生活</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo BASE_URL . '/about.php'?>">关于本站</a>
+                <a class="nav-link" href="<?php echo BASE_URL . '/dahboard/publish/about.php'?>">关于本站</a>
             </li>
         </ul>
         <ul class="navbar-nav  my-4 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo BASE_URL . '/admin/articles/publish.php'?>">发表文章</a>
+                <a class="nav-link" href="<?php echo BASE_URL . '/dashboard/publish/create.php'?>">发表文章</a>
             </li>
             <?php if(isset($_SESSION['id'])): ?>
                 <li class="nav-item dropdown">
@@ -47,8 +47,8 @@
                         <?php if($_SESSION['admin']): ?> 
                         <li><a class="dropdown-item" href="#">管理面板</a></li>
                         <?php endif; ?>
-                        <li><a class="dropdown-item" href="<?php echo BASE_URL . '/userprofile.php'?>">个人信息</a></li>
-                        <li><a class="dropdown-item" href="<?php echo BASE_URL . '/setting.php'?>">设置</a></li>
+                        <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/users/userprofile.php'?>">个人信息</a></li>
+                        <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/users/setting.php'?>">设置</a></li>
                         <li><a class="dropdown-item" href="<?php echo BASE_URL . '/logout.php'?>" class="logout">注销</a></li>
                     </ul>
                 </li>

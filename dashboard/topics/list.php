@@ -44,36 +44,28 @@ include(ROOT_PATH . "/app/controllers/users.php");
             <div class="main-container d-flex" >
                 <?php include(ROOT_PATH . "/app/partials/manageSidebar.php");?>
                 <div style="margin:5% 0% 0% 5%;">
-                    <h4>用户列表</h4>  
+                    <h4>标签列表</h4>  
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">用户名</th>
-                                <th scope="col">用户类型</th>
+                                <th scope="col">标签名称</th>
+                                <th scope="col">标签类型</th>
+                                <th scope="col">标签描述</th>
+                                <th scope="col">创建日期</th>、
+                                <th scope="col">修改日期</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
                             <tr>
-                                <th scope="row">edwin99</th>
-                                <td>                                    
-                                    <div class="link-bottom-line row">
-                                        <div>
-                                            <span style="background-color:orangered;"></span>   
-                                            <span style="color:gray;">管理员</span>   
-                                        </div>
-                                    </div>
-                                </td>
+                                <th scope="row">Java</th>
+                                <td>亚标签</td>
                             </tr>
+                            
+                            
                             <tr>
                                 <th scope="row">dsda</th>
-                                <td>                                    
-                                    <div class="link-bottom-line row">
-                                        <div>
-                                            <span style="background-color:cadetblue;"></span>   
-                                            <span style="color:gray;">普通用户</span>   
-                                        </div>
-                                    </div>
-                                </td>
+                                
+                                <td>“</td>
                             </tr>
                             <tr>
                                 <th scope="row">2234</th>
@@ -101,6 +93,15 @@ include(ROOT_PATH . "/app/controllers/users.php");
                     </table>
                 </div>
             </div>
+
+            
+            
+            
+            
+            
+            
+            
+            
             <?php include(ROOT_PATH . "/app/partials/footer.php");?>
         </div>
     </body>

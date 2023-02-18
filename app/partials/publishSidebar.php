@@ -3,14 +3,14 @@
         <?php if(isset($_SESSION['id'])): ?>
             <div class="pb-5">
                 <img class="user-img" src="<?php echo BASE_URL . '/assets/images/userprofile.png'?>" alt="" style="width:3rem; height:3rem;">
-                <h3><?php echo $_SESSION['username']; ?></h3> 
+                <h3><a href="<?php echo BASE_URL . '/dashboard/users/userprofile.php'?>"><?php echo $_SESSION['username']; ?></a></h3> 
             </div>
             
             <ul class="list-unstyled px-2 text-muted">
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/list.php'?>" class="text-deoration-none">发过的文章</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/list.php'?>" class="text-deoration-none">发过的动态</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/list.php'?>" class="text-deoration-none">发过的项目</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/admin/articles/userprofile.php'?>" class="text-deoration-none">用户设置</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>" class="text-deoration-none">发过的文章</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/publish/livelist.php'?>" class="text-deoration-none">发过的动态</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/publish/projectlist.php'?>" class="text-deoration-none">发过的项目</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/users/setting.php'?>" class="text-deoration-none">用户设置</a></li>
             </ul>
         <?php else: ?>
             <div class="pt-5">
