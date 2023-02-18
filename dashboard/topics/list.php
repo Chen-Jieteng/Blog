@@ -30,7 +30,7 @@ include(ROOT_PATH . "/app/controllers/users.php");
             tbody > tr > th{
                 font-weight: normal;
             }
-            .link-bottom-line span:first-of-type{
+            span{
                 height:9px;
                 width:9px;
                 flex:0 0 auto;
@@ -48,103 +48,37 @@ include(ROOT_PATH . "/app/controllers/users.php");
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">文章</th>
-                                <th scope="col">评论</th>
-                                <th scope="col">访问量</th>
-                                <th scope="col">发布时间</th>
-                                <th scope="col">修改时间</th>
+                                <th scope="col">标签名称</th>
+                                <th scope="col">颜色</th>
+                                <th scope="col">标签类型</th>
+                                <th scope="col">归属模块</th>
+                                <th scope="col">描述</th>
+                                <th scope="col">设置日期</th>
                                 <th scope="col">操作</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
                             <tr>
-                                <th scope="row">
-                                    <a href="<?php echo BASE_URL . '/dashboard/publish/edit.php'?>">
-                                        利用IBM Watson Studio系统预测以及分析未来房价
-                                    </a>
-                                    <div class="link-bottom-line row">
-                                        <div class="col-md-3">
-                                            <span style="background-color:dodgerblue;"></span>   
-                                            <span style="color:gray;">人工智能</span>   
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span style="background-color:cadetblue;"></span>   
-                                            <span style="color:gray;">校园项目</span>   
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2022-12-26</td>
+                                <th scope="row">技术笔记</th>
+                                <td><span style="background-color:orange"></span></td>
+                                <td>无</td>
+                                <td>无</td>
+                                <td>记录和分享技术知识方面的笔记，包括个人笔记、团队知识库、技术文档等。技术笔记是一个非常有用的工具，可以帮助开发人员记录自己的思考过程、解决问题的方法、以及项目经验等。</td>
                                 <td>2022-12-26</td>
                                 <td>
-                                    <a href="#">隐藏</a>
+                                    <a href="<?php echo BASE_URL . '/dashboard/topics/edit.php'?>">编辑</a>
                                     <a href="#">删除</a>
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">阿伊努族语言的扩张与濒危，及其语法变化
-                                    <div class="link-bottom-line row">
-                                        <div class="col-md-3">
-                                            <span style="background-color:darkgoldenrod;"></span>   
-                                            <span style="color:gray;">自然语言</span>   
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2022-12-26</td>
+                                <th scope="row">Java</th>
+                                <td><span style="background-color:orange"></span></td>
+                                <td>技术笔记</td>
+                                <td>技术笔记</td>
+                                <td>JavaJava是一种广泛使用的编程语言，由Sun Microsystems于1995年推出。它是一种面向对象的语言，广泛用于开发跨平台的应用程序，包括企业级应用、移动应用、Web应用和游戏等。</td>
                                 <td>2022-12-26</td>
                                 <td>
-                                    <a href="#">隐藏</a>
-                                    <a href="#">删除</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">记录：校园技术和生活支持的软件设计小项目                    
-                                    <div class="link-bottom-line row">
-                                        <div class="col-md-3">
-                                            <span style="background-color:orange;"></span>   
-                                            <span style="color:gray;">Java</span>   
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span style="background-color:cadetblue;"></span>   
-                                            <span style="color:gray;">校园项目</span>   
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2022-12-26</td>
-                                <td>2022-12-26</td>
-                                <td>
-                                    <a href="#">隐藏</a>
-                                    <a href="#">删除</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">对AWS Route53服务所创建域名失效的故障排除和解决方案
-                                    <div class="link-bottom-line row">
-                                        <div class="col-md-3">
-                                            <span style="background-color:khaki"></span>   
-                                            <span style="color:gray;">AWS</span>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span style="background-color:limegreen;"></span>   
-                                            <span style="color:gray;">网络基础</span>   
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span style="background-color:lightsteelblue;"></span>   
-                                            <span style="color:gray;">技术笔记</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2022-12-26</td>
-                                <td>2022-12-26</td>
-                                <td>
-                                    <a href="#">隐藏</a>
+                                    <a href="<?php echo BASE_URL . '/dashboard/topics/edit.php'?>">编辑</a>
                                     <a href="#">删除</a>
                                 </td>
                             </tr>
