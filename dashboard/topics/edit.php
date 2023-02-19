@@ -45,29 +45,30 @@ include(ROOT_PATH . "/app/controllers/topics.php");
                 <?php include(ROOT_PATH . "/app/partials/adminSidebar.php");?>
                 <div style="margin:5% 0% 0% 5%;">
                     <h4 class="mb-3">编辑主题标签</h4>  
-                    <form>
+                    <form action="edit.php" method="POST">
+                        <input type="hidden" class="form-control" name="id" value="<?php echo $id;?>">
                         <div class="mb-3">
-                            <label for="topic-name" class="form-label">标签名称</label>
-                            <input type="text" class="form-control" id="topic-name" aria-describedby="emailHelp">
+                            <label for="name" class="form-label">标签名称</label>
+                            <input type="text" class="form-control" name="name" id="name" value="<?php echo $name;?>">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-color" class="form-label">标签颜色</label>
-                            <input type="text" class="form-control" id="topic-color" aria-describedby="emailHelp">
+                            <label for="tag_color" class="form-label">标签颜色</label>
+                            <input type="text" class="form-control" name="tag_color" id="tag_color" value="<?php echo $tag_color;?>">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-type" class="form-label">标签类型</label>
-                            <input type="text" class="form-control" id="topic-type" aria-describedby="emailHelp">
+                            <label for="type" class="form-label">标签类型</label>
+                            <input type="text" class="form-control" name="type" id="type" value="<?php echo $type; ?>">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-parent" class="form-label">归属模块</label>
-                            <input type="text" class="form-control" id="topic-parent" aria-describedby="emailHelp">
+                            <label for="tag_parent" class="form-label">归属模块</label>
+                            <input type="text" class="form-control" name="tag_parent" id="tag_parent" value="<?php echo $tag_parent;?>">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-desc" class="form-label">描述</label>
-                            <textarea class="form-control" id="topic-desc" rows="3"></textarea>
+                            <label for="description" class="form-label">描述</label>
+                            <textarea class="form-control" name="description" id="body" rows="3"><?php echo $description;?></textarea>
                         </div>
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">保存更改</button>
+                            <button type="submit" name="update-topic" class="btn btn-primary">保存更改</button>
                         </div>
                         </div>
                     </form>
