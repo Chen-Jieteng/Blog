@@ -44,15 +44,17 @@ include(ROOT_PATH . "/app/controllers/topics.php");
             <div class="main-container d-flex" >
                 <?php include(ROOT_PATH . "/app/partials/adminSidebar.php");?>
                 <div style="margin:5% 0% 0% 5%;">
-                    <h4 class="mb-3">添加主题标签</h4>  
+                    <h4 class="mb-3">添加主题标签</h4> 
+                    <?php include(ROOT_PATH . "/app/helpers/formErrors.php");?>
+ 
                     <form action="create.php" method="POST">
                         <div class="mb-3">
                             <label for="name" class="form-label">标签名称</label>
-                            <input type="text" class="form-control" name="name" id="name" aria-describedby="name">
+                            <input type="text" class="form-control" name="name" id="name" aria-describedby="name" value="<?php echo $name ?>">
                         </div>
                         <div class="mb-3">
                             <label for="tag_color" class="form-label">标签颜色</label>
-                            <input type="text" class="form-control" name="tag_color" id="tag_color" aria-describedby="tag_color">
+                            <input type="text" class="form-control" name="tag_color" id="tag_color" aria-describedby="tag_color"  value="<?php echo $tag_color ?>">
                         </div>
                         <div class="mb-3">
                             <label for="type" class="form-label">标签类型</label>
@@ -64,7 +66,7 @@ include(ROOT_PATH . "/app/controllers/topics.php");
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">描述</label>
-                            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                            <textarea class="form-control" name="description" id="description" rows="3" ><?php echo $description; ?></textarea>
                         </div>
                         <div class="mb-3">
                             <button type="submit" name="add-topic" class="btn btn-primary">添加标签</button>

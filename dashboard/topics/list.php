@@ -71,7 +71,7 @@ include(ROOT_PATH . "/app/controllers/topics.php");
                                     <td><?php echo $topic['create_date']; ?></td>
                                     <td>
                                         <a href="edit.php?id=<?php echo $topic['id'];?>" class="edit">编辑</a>
-                                        <a href="#">删除</a>
+                                        <a href="list.php?del_id=<?php echo $topic['id'];?>" class="delete">删除</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
