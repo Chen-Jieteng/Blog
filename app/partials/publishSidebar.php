@@ -7,9 +7,9 @@
             </div>
             
             <ul class="list-unstyled px-2 text-muted">
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>" class="text-deoration-none">发过的文章</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/publish/livelist.php'?>" class="text-deoration-none">发过的动态</a></li>
-                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/publish/projectlist.php'?>" class="text-deoration-none">发过的项目</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/publish/list.php'?>" class="text-deoration-none">发过的文章</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/publish/list.php'?>" class="text-deoration-none">发过的动态</a></li>
+                <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/publish/list.php'?>" class="text-deoration-none">发过的项目</a></li>
                 <li class="pb-5"><a href="<?php echo BASE_URL . '/dashboard/users/setting.php'?>" class="text-deoration-none">用户设置</a></li>
             </ul>
         <?php else: ?>

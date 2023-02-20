@@ -15,11 +15,11 @@ function validateUser($user){
     }
 
     $existingUser = selectOne('users', ['email' => $user['email']]);
-    if(isset($existingUser)){
+    if($existingUser){
         array_push($errors, '邮箱已注册');
     }
     $existingUsername = selectOne('users', ['username' => $user['username']]);
-    if(isset($existingUsername)){
+    if($existingUsername){
         array_push($errors, '用户名已占用');
     }
     return $errors;

@@ -1,6 +1,6 @@
 <?php 
 include("../../path.php");
-include(ROOT_PATH . "/app/controllers/users.php");
+include(ROOT_PATH . "/app/controllers/posts.php");
 ?>
 
 <!DOCTYPE  html>
@@ -25,25 +25,51 @@ include(ROOT_PATH . "/app/controllers/users.php");
             <?php include(ROOT_PATH . "/app/partials/publishHeader.php");?>
             <div class="main-container d-flex" style="background-color:#f7f8fa">
                 <?php include(ROOT_PATH . "/app/partials/publishSidebar.php");?>  
-                <div class="card" id="article-publish">
+                <div class="card" id="post-publish" style="width:50%">
                     <h5 class="card-header">文章创作</h5>
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <input type="text" class="form-control" id="title" placeholder="标题，最多20字">
-                            <small class="text-muted">0/20</small>
-                        </h5>
-                        <p class="card-text">
-                            <textarea class="form-control" id="articletext" rows="3" placeholder="此刻你想给大家分享什么？"></textarea>
-                        </p>
-                        <a href="#" class="btn btn-primary">图片</a> 
-                        <a href="#" class="btn btn-primary">话题</a> 
-                        <a href="#" class="btn btn-primary">表情</a> 
-                        <a href="#" class="btn btn-primary">链接</a> 
-                        <a href="#" class="btn btn-primary">链接</a> 
-                        <a href="#" class="btn btn-primary">发表</a> 
-                        <small class="text-muted">正文字数：0/5000</small>
-                        <small class="text-muted">实时保存草稿</small>
-                    </div>
+                    <form action="create.php" method="POST">
+                        <div class="card-body">
+                            <div class="pb-3">
+                                <h6 class="card-title form-floating">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="标题，最多20字">
+                                    <label for="name" class="text-muted">标题，最多20字</label>
+                                </h6>
+                                <small class="text-muted">标题字数：0/20</small>
+                            </div>
+                            <div class="pb-3">
+                                <select class="form-select text-muted" name="topic_id">
+                                    <option selected>------选择标签------</option>
+                                    <?php 
+                                    $topics_slice = array_slice($topics, 4); 
+                                    foreach($topics_slice as $key => $topic):?>
+                                        <option value="<?php echo $topic['id']?>">
+                                            <?php echo $topic['name']?>
+                                        </option>
+                                    ?>
+                                    <?php endforeach;?>
+                                </select>
+                            </div>
+                            <div class="card-text form-floating pb-3">
+                                <textarea class="form-control" id="body" style="height:150px" name="body" placeholder="此刻你想给大家分享什么？"></textarea>  
+                                <label for="floatingInput" class="text-muted">此刻你想给大家分享什么？</label>
+                            </div>
+                            <div class="pb-3">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="image">图片</label>
+                                <input type="file" class="form-control" name="image">
+                            </div> 
+                                <a href="#" class="btn btn-primary">表情</a> 
+                                <a href="#" class="btn btn-primary">链接</a>                                 
+                            </div>
+                            <div class="pb-3">
+                                <small class="text-muted">正文字数：0/5000</small><br>
+                                <small class="text-muted">实时保存草稿</small>
+                            </div>
+                            <div>
+                                <button type="submit" name="add-post" class="btn btn-primary">发表</a> 
+                            </div>
+                        </div>
+                    </form>
                 </div>     
             </div>
             <?php include(ROOT_PATH . "/app/partials/footer.php");?>

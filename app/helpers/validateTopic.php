@@ -6,7 +6,7 @@ function validateTopic($topic){
         array_push($errors, '*标签名无效');
     }    
     $existingTopic = selectOne('topics', ['name' => $topic['name']]);
-    if(isset($existingTopic)){
+    if($existingTopic){
         array_push($errors, '*标签重复');
     }
 
@@ -14,7 +14,7 @@ function validateTopic($topic){
         array_push($errors, '*颜色代码无效');
     }
     $existingTopic = selectOne('topics', ['tag_color' => $topic['tag_color']]);
-    if(isset($existingTopic)){
+    if($existingTopic){
         array_push($errors, '*颜色重复');
     }
 
