@@ -27,30 +27,35 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                 <?php include(ROOT_PATH . "/app/partials/publishSidebar.php");?>  
                 <div class="card" id="post-publish" style="width:50%">
                     <h5 class="card-header">文章创作</h5>
-                    <form action="create.php" method="POST">
+                    <?php include(ROOT_PATH . '/app/helpers/formErrors.php');?>
+                    <form action="create.php" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="pb-3">
                                 <h6 class="card-title form-floating">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="标题，最多20字">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="标题，最多20字" value="<?php echo $name; ?>">
                                     <label for="name" class="text-muted">标题，最多20字</label>
                                 </h6>
                                 <small class="text-muted">标题字数：0/20</small>
                             </div>
                             <div class="pb-3">
                                 <select class="form-select text-muted" name="topic_id">
-                                    <option selected>------选择标签------</option>
-                                    <?php 
-                                    $topics_slice = array_slice($topics, 4); 
-                                    foreach($topics_slice as $key => $topic):?>
-                                        <option value="<?php echo $topic['id']?>">
-                                            <?php echo $topic['name']?>
-                                        </option>
-                                    ?>
+                                    <option value="0">-----请选择标签-----</option>
+                                    <?php $topics = array_slice($topics, 5); ?>
+                                    <?php foreach($topics as $key => $topic):?>
+                                        <?php if(!empty($topic_id) && $topic_id == $topic['id']): ?>
+                                            <option selected value="<?php echo $topic['id']?>">
+                                                "<?php echo $topic['tag_parent']?>": <?php echo $topic['name']?>
+                                            </option>
+                                        <?php else: ?>
+                                            <option value="<?php echo $topic['id']?>">
+                                                "<?php echo $topic['tag_parent']?>": <?php echo $topic['name']?>
+                                            </option>
+                                        <?php endif; ?>
                                     <?php endforeach;?>
                                 </select>
                             </div>
                             <div class="card-text form-floating pb-3">
-                                <textarea class="form-control" id="body" style="height:150px" name="body" placeholder="此刻你想给大家分享什么？"></textarea>  
+                                <textarea class="form-control" id="body" style="height:150px" name="body" placeholder="此刻你想给大家分享什么？"><?php echo $body; ?></textarea>  
                                 <label for="floatingInput" class="text-muted">此刻你想给大家分享什么？</label>
                             </div>
                             <div class="pb-3">
@@ -65,6 +70,17 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                                 <small class="text-muted">正文字数：0/5000</small><br>
                                 <small class="text-muted">实时保存草稿</small>
                             </div>
+                            <!-- <div> 暂时是不需要的，因为博客就应该默认发布文章，想隐藏可以自行设置
+                                < ?php if(empty($published)):?>
+                                <label>
+                                    <input type="checkbox" name="published">发布成功
+                                </label>
+                                < ?php else:?>
+                                <label>
+                                    <input type="checkbox" name="published" checked>发布成功
+                                </label>
+                                < ?php endif;?>
+                            </div> -->
                             <div>
                                 <button type="submit" name="add-post" class="btn btn-primary">发表</a> 
                             </div>

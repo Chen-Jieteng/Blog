@@ -45,6 +45,7 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                 <?php include(ROOT_PATH . "/app/partials/publishSidebar.php");?>
                 <div style="margin:5% 0% 0% 5%;">
                     <h4>发过的文章</h4>  
+                    <?php include(ROOT_PATH . "/app/partials/messages.php");?> 
                     <table class="table">
                         <thead>
                             <tr>
