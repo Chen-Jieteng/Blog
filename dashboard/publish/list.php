@@ -74,17 +74,17 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                                     <td>0</td>
                                     <td style="width:15%"><?php echo $post['create_time']; ?></td>
                                     <td>
-                                        <a href="<?php echo BASE_URL . '/dashboard/publish/edit.php'?>">编辑</a>
-                                        <a href="<?php echo BASE_URL . '/dashboard/publish/list.php'?>">删除</a>
+                                        <a href="edit.php?id=<?php echo $post['id'];?>">编辑</a>
+                                        <a href="edit.php?delete_id=<?php echo $post['id'];?>">删除</a>
                                     </td>
                                     <?php if($post['published']): ?>
                                         <td>
                                             <p>已公开</p>
-                                            <a href="#" class="hide">仅自己可见</a>
+                                            <a href="edit.php?published=0&p_id=<?php echo $post['id'];?>" class="hide">仅自己可见</a >
                                         </td>
                                     <?php else: ?>
                                         <td>
-                                            <a href="#" class="publish">公开</a>
+                                            <a href="edit.php?published=1&p_id=<?php echo $post['id'];?>" class="publish">公开</a>
                                             <p>仅自己可见</p>
                                         </td>
                                     <?php endif; ?>
