@@ -27,6 +27,7 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                 <?php include(ROOT_PATH . "/app/partials/publishSidebar.php");?>  
                 <div class="card" id="post-edit" style="width:50%">
                     <h5 class="card-header">文章编辑</h5>
+                    <?php include(ROOT_PATH . '/app/helpers/formErrors.php'); ?>
                     <form action="edit.php" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <div class="card-body">

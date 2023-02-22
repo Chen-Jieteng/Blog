@@ -45,6 +45,7 @@ include(ROOT_PATH . "/app/controllers/users.php");
                 <?php include(ROOT_PATH . "/app/partials/adminSidebar.php");?>
                 <div style="margin:5% 0% 0% 5%;">
                     <h4>用户列表</h4>  
+                    <?php include(ROOT_PATH . "/app/partials/messages.php");?>
                     <table class="table">
                         <thead>
                             <tr>
@@ -55,58 +56,34 @@ include(ROOT_PATH . "/app/controllers/users.php");
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            <tr>
-                                <th scope="row">edwin99</th>
-                                <td>                                    
-                                    <div class="link-bottom-line row">
-                                        <div>
-                                            <span style="background-color:orangered;"></span>   
-                                            <span style="color:gray;">管理员</span>   
+                            <?php foreach($admin_users as $key => $user):?>
+                                <tr>
+                                    <td><?php echo $user['username'];?></td>
+                                    <td>                                    
+                                        <div class="link-bottom-line row">
+                                            <div>
+                                                <?php if($user['admin'] == '1'):?>
+                                                    <span style="background-color:orangered;"></span>   
+                                                    <span>管理员</span>   
+                                                <?php else:?>
+                                                    <span style="background-color:cadetblue;"></span>   
+                                                    <span>普通用户</span>   
+                                                <?php endif;?>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>正常</td>
-                                <td>无</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">dsda</th>
-                                <td>                                    
-                                    <div class="link-bottom-line row">
-                                        <div>
-                                            <span style="background-color:cadetblue;"></span>   
-                                            <span style="color:gray;">普通用户</span>   
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>正常</td>
-                                <td>禁言</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2234</th>
-                                <td>                                    
-                                    <div class="link-bottom-line row">
-                                        <div>
-                                            <span style="background-color:cadetblue;"></span>   
-                                            <span style="color:gray;">普通用户</span>   
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>正常</td>
-                                <td>禁言</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">12333</th>
-                                <td>                                    
-                                    <div class="link-bottom-line row">
-                                        <div>
-                                            <span style="background-color:cadetblue;"></span>   
-                                            <span style="color:gray;">普通用户</span>   
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>正常</td>
-                                <td>禁言</td>
-                            </tr>
+                                    </td>
+                                    <?php if(true):?>
+                                        <td>正常</td>
+                                    <?php else:?>
+                                        <td>封禁</td>
+                                    <?php endif;?>
+                                    <?php if(true): ?> <!-- 这里admin写上"无"就行 -->
+                                        <td>禁言</td> 
+                                    <?php else:?>
+                                        <td>解封</td>
+                                    <?php endif;?>
+                                </tr>
+                            <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>

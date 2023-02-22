@@ -45,7 +45,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <?php if($_SESSION['admin']): ?> 
-                        <li><a class="dropdown-item" href="#">管理面板</a></li>
+                        <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/admin/userlist.php'?>">管理面板</a></li>
                         <?php endif; ?>
                         <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/users/userprofile.php'?>">个人信息</a></li>
                         <li><a class="dropdown-item" href="<?php echo BASE_URL . '/dashboard/users/setting.php'?>">设置</a></li>

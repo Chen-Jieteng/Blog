@@ -10,7 +10,7 @@
                 <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL . '/index.php'?>">主页</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo BASE_URL . '/dashboard/publish/create.php'?>">管理中心</a>
+                <a class="nav-link" href="<?php echo BASE_URL . '/dashboard/admin/userlist.php'?>">管理中心</a>
             </li>
         <ul class="navbar-nav  my-4 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <?php if(isset($_SESSION['id'])): ?>

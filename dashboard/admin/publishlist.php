@@ -1,6 +1,6 @@
 <?php 
 include("../../path.php");
-include(ROOT_PATH . "/app/controllers/users.php");
+include(ROOT_PATH . "/app/controllers/posts.php");
 ?>
 
 <!DOCTYPE  html>
@@ -49,105 +49,107 @@ include(ROOT_PATH . "/app/controllers/users.php");
                         <thead>
                             <tr>
                                 <th scope="col">文章</th>
-                                <th scope="col">评论</th>
-                                <th scope="col">访问量</th>
-                                <th scope="col">发布时间</th>
-                                <th scope="col">修改时间</th>
+                                <th scope="col">作者</th>
+`                               <th scope="col">发布时间</th>
                                 <th scope="col">操作</th>
+                                <th scope="col">可见范围</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            <tr>
-                                <th scope="row">
-                                    <a href="<?php echo BASE_URL . '/dashboard/publish/edit.php'?>">
-                                        利用IBM Watson Studio系统预测以及分析未来房价
-                                    </a>
-                                    <div class="link-bottom-line row">
-                                        <div class="col-md-3">
-                                            <span style="background-color:dodgerblue;"></span>   
-                                            <span style="color:gray;">人工智能</span>   
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span style="background-color:cadetblue;"></span>   
-                                            <span style="color:gray;">校园项目</span>   
-                                        </div>
+                            <?php foreach($posts as $key => $post): ?>
+                                <tr>
+                                    <td style="width:13%">
+                                    <div>
+                                        <?php echo $post['name']; ?>
                                     </div>
-                                </th>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2022-12-26</td>
-                                <td>2022-12-26</td>
-                                <td>
-                                    <a href="#">隐藏</a>
-                                    <a href="#">删除</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">阿伊努族语言的扩张与濒危，及其语法变化
-                                    <div class="link-bottom-line row">
-                                        <div class="col-md-3">
-                                            <span style="background-color:darkgoldenrod;"></span>   
-                                            <span style="color:gray;">自然语言</span>   
+                                        <div class="link-bottom-line row">
+                                            <div class="col-md-6">
+                                                <span 
+                                                style=
+                                                "background-color:
+                                                <?php 
+                                                $sql = "SELECT t.tag_color AS tag_colors
+                                                FROM posts p
+                                                JOIN topics t ON p.topic_id = t.id
+                                                WHERE p.id = {$post['id']}";
+                                                $stmt = $pdo->query($sql);
+                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                echo $row['tag_colors'];
+                                                ?>">
+                                                </span>
+                                                <span style="color:gray;">
+                                                    <?php 
+                                                    $sql = "SELECT t.name AS topic_name
+                                                    FROM posts p
+                                                    JOIN topics t ON p.topic_id = t.id
+                                                    WHERE p.id = {$post['id']}";
+                                                    $stmt = $pdo->query($sql);
+                                                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                    echo $row['topic_name'];
+                                                    ?>
+                                                </span>   
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span 
+                                                style=
+                                                "background-color:
+                                                <?php 
+                                                $sql = "SELECT t.tag_color AS parent_colors
+                                                FROM posts p
+                                                JOIN topics t ON p.parent_topic_id = t.id
+                                                WHERE p.id = {$post['id']}";
+                                                $stmt = $pdo->query($sql);
+                                                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                echo $row['parent_colors'];
+                                                ?>">
+                                                </span>
+                                                <span style="color:gray;">
+                                                    <?php 
+                                                    $sql = "SELECT t.name AS topic_parent
+                                                    FROM posts p
+                                                    JOIN topics t ON p.parent_topic_id = t.id
+                                                    WHERE p.id = {$post['id']}";
+                                                    $stmt = $pdo->query($sql);
+                                                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                    echo $row['topic_parent'];
+                                                    ?>
+                                                </span>   
+                                            </div>
                                         </div>
-                                    </div>
-                                </th>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2022-12-26</td>
-                                <td>2022-12-26</td>
-                                <td>
-                                    <a href="#">隐藏</a>
-                                    <a href="#">删除</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">记录：校园技术和生活支持的软件设计小项目                    
-                                    <div class="link-bottom-line row">
-                                        <div class="col-md-3">
-                                            <span style="background-color:orange;"></span>   
-                                            <span style="color:gray;">Java</span>   
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span style="background-color:cadetblue;"></span>   
-                                            <span style="color:gray;">校园项目</span>   
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2022-12-26</td>
-                                <td>2022-12-26</td>
-                                <td>
-                                    <a href="#">隐藏</a>
-                                    <a href="#">删除</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">对AWS Route53服务所创建域名失效的故障排除和解决方案
-                                    <div class="link-bottom-line row">
-                                        <div class="col-md-3">
-                                            <span style="background-color:khaki"></span>   
-                                            <span style="color:gray;">AWS</span>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span style="background-color:limegreen;"></span>   
-                                            <span style="color:gray;">网络基础</span>   
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span style="background-color:lightsteelblue;"></span>   
-                                            <span style="color:gray;">技术笔记</span>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>2022-12-26</td>
-                                <td>2022-12-26</td>
-                                <td>
-                                    <a href="#">隐藏</a>
-                                    <a href="#">删除</a>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td style="width:5%">
+                                    <?php 
+                                        /* $sql = "SELECT u.username AS topic_parent
+                                        FROM posts p
+                                        JOIN topics t ON p.parent_topic_id = t.id
+                                        WHERE p.id = {$post['id']}";
+                                        $stmt = $pdo->query($sql);
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        echo $row['topic_parent']; */
+                                        ?>
+                                    </td>
+                                    <td style="width:10%"><?php echo $post['create_time']; ?></td>
+                                    <td style="width:6%">
+                                        <a href="edit.php?published=0&p_id=<?php echo $post['id'];?>">删除</a>
+                                        <a href="edit.php?published=1&p_id=<?php echo $post['id'];?>">恢复</a><br>
+                                        <a href="edit.php?delete_id=<?php echo $post['id'];?>">永久删除</a>
+                                    </td>
+                                    <td style="width:7%">
+                                        <?php if($post['published']): ?>
+                                            <div>已公开</div>
+                                            <div>
+                                                <a href="edit.php?published=0&p_id=<?php echo $post['id'];?>" class="hide">
+                                                仅自己可见</a>
+                                            </div>
+                                        <?php else: ?>
+                                            <div>
+                                                <a href="edit.php?published=1&p_id=<?php echo $post['id'];?>" class="publish">公开</a>
+                                            </div>
+                                            <div>仅自己可见</div>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>

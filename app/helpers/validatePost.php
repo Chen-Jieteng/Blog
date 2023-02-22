@@ -14,7 +14,12 @@ function validatePost($post){
 
     $existingPost = selectOne('posts', ['name' => $post['name']]);
     if($existingPost){
-        array_push($errors, '标题重复');
+        if(isset($post['update-post']) && $existingPost['id'] != $post['id']){
+            array_push($errors, '标题重复');
+        }
+        if(isset($post['add-post'])){
+            array_push($errors, '标题重复');
+        }
     }
 
     return $errors;

@@ -45,30 +45,29 @@ include(ROOT_PATH . "/app/controllers/users.php");
                 <?php include(ROOT_PATH . "/app/partials/adminSidebar.php");?>
                 <div style="margin:5% 0% 0% 5%;">
                     <h4 class="mb-3">添加新用户</h4>  
-                    <form>
+                    <?php include(ROOT_PATH . "/app/helpers/formErrors.php");?>
+                    <form action="usercreate.php" method="POST">
                         <div class="mb-3">
-                            <label for="topic-name" class="form-label">用户名</label>
-                            <input type="text" class="form-control" id="topic-name" aria-describedby="emailHelp">
+                            <label for="username" class="form-label">用户名</label>
+                            <input type="text" class="form-control" name="username" value="<?php echo $username;?>">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-color" class="form-label">注册邮箱</label>
-                            <input type="text" class="form-control" id="topic-color" aria-describedby="emailHelp">
+                            <label for="email" class="form-label">注册邮箱</label>
+                            <input type="email" class="form-control" name="email" value="<?php echo $email;?>">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-type" class="form-label">注册密码</label>
-                            <input type="text" class="form-control" id="topic-type" aria-describedby="emailHelp">
+                            <label for="password" class="form-label">注册密码</label>
+                            <input type="password" class="form-control" name="password">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-parent" class="form-label">确认密码</label>
-                            <input type="text" class="form-control" id="topic-parent" aria-describedby="emailHelp">
+                            <label for="passwordConf" class="form-label">确认密码</label>
+                            <input type="password" class="form-control" name="passwordConf">
+                        </div>
+                        <div class="pb-3">
+                            <input type="checkbox" name="admin">管理员
                         </div>
                         <div class="mb-3">
-                            <label for="topic-desc" class="form-label">用户类型</label>
-                            <textarea class="form-control" id="topic-desc" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">添加新用户</button>
-                        </div>
+                            <button type="submit" name="create-admin" class="btn btn-primary">添加新用户</button>
                         </div>
                     </form>
                 </div>

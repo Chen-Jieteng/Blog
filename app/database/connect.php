@@ -14,5 +14,13 @@ $conn = new mysqli($host, $user, $pass, $db_name);
 if ($conn -> connect_error){
     die('Database connection errors: '. $conn->connect_error);
 } 
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db_name", $user, $pass);
+    // set the PDO error mode to exception
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+
 ?>
 

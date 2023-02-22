@@ -64,8 +64,30 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                                     <td style="width:30%"><?php echo $post['name']; ?>
                                         <div class="link-bottom-line row">
                                             <div>
-                                                <span style="background-color:dodgerblue;"></span>   
-                                                <span style="color:gray;">校园项目</span>   
+                                                <span 
+                                                style=
+                                                "background-color:
+                                                    <?php 
+                                                    $sql = "SELECT t.tag_color AS tag_colors
+                                                    FROM posts p
+                                                    JOIN topics t ON p.topic_id = t.id
+                                                    WHERE p.id = {$post['id']}";
+                                                    $stmt = $pdo->query($sql);
+                                                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                    echo $row['tag_colors'];
+                                                    ?>">
+                                                </span>
+                                                <span style="color:gray;">
+                                                    <?php 
+                                                    $sql = "SELECT t.name AS topic_name
+                                                    FROM posts p
+                                                    JOIN topics t ON p.topic_id = t.id
+                                                    WHERE p.id = {$post['id']}";
+                                                    $stmt = $pdo->query($sql);
+                                                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                    echo $row['topic_name'];
+                                                    ?>
+                                                </span>     
                                             </div>
                                         </div>
                                     </td>
