@@ -118,14 +118,14 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                                         </div>
                                     </td>
                                     <td style="width:5%">
-                                    <?php 
-                                        /* $sql = "SELECT u.username AS topic_parent
-                                        FROM posts p
-                                        JOIN topics t ON p.parent_topic_id = t.id
-                                        WHERE p.id = {$post['id']}";
-                                        $stmt = $pdo->query($sql);
-                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                                        echo $row['topic_parent']; */
+                                        <?php 
+                                            $sql = "SELECT u.username AS user_name
+                                            FROM posts p
+                                            JOIN users u ON p.user_id = u.id
+                                            WHERE p.id = {$post['id']}";
+                                            $stmt = $pdo->query($sql);
+                                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                            echo $row['user_name'];
                                         ?>
                                     </td>
                                     <td style="width:10%"><?php echo $post['create_time']; ?></td>

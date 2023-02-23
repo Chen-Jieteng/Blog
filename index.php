@@ -1,6 +1,8 @@
 <?php 
 include("path.php");
-include(ROOT_PATH . "/app/database/db.php"); 
+include(ROOT_PATH . "/app/controllers/topics.php");
+$posts = selectAll('posts', ['published' => 1]);
+/* $posts = getPublishedPosts(); */
 ?>
 
 <!DOCTYPE  html>
@@ -27,22 +29,51 @@ include(ROOT_PATH . "/app/database/db.php");
 
                 <div class="container-fluid">
                   <div class="row pt-3">
+                    <?php
+                      $sql = "SELECT * FROM posts WHERE published='1' ORDER BY id DESC LIMIT 1";
+                      $stmt = $pdo->query($sql);
+                      $post = $stmt->fetch(PDO::FETCH_ASSOC);
+                    ?>
                     <div class="col-md-12  h-100 d-flex align-items-center justify-content-center">
                       <div class="card">
                         <div class="row g-0">
                             <div class="col-md-5">
                                 <div class="card-body">
-                                <p><span class="badge bg-primary">最近更新</span><p>
-                                <h3 class="card-title"><b><a href="<?php echo BASE_URL . '/article.php?article_id=1'?>">利用IBM Watson Studio系统预测以及分析未来房价</b></a></h3>
+                                <p><span class="badge bg-primary">最新发布</span><p>
+                                <h3 class="card-title"><b><a href="single.html">
+                                <?php echo $post['name'];?>
+                              </b></a></h3>
                                 <p class="card-text">
-                                    更新时间: <small class="text-muted">2022年11月23日</small><br>
-                                    <small class="text-muted">数据科学 - 数据分析 - IBM</small>
+                                    更新时间: <small class="text-muted"><?php echo date('Y年n月j日', strtotime($post['update_time']));?></small><br>
+                                    <small class="text-muted">
+                                      <?php 
+                                        $sql = "SELECT t.name AS topic_parent
+                                        FROM posts p
+                                        JOIN topics t ON p.parent_topic_id = t.id
+                                        WHERE p.id = {$post['id']}";
+                                        $stmt = $pdo->query($sql);
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        echo $row['topic_parent'];
+                                      ?>
+                                       - 
+                                      <?php 
+                                        $sql = "SELECT t.name AS topic_name
+                                        FROM posts p
+                                        JOIN topics t ON p.topic_id = t.id
+                                        WHERE p.id = {$post['id']}";
+                                        $stmt = $pdo->query($sql);
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        echo $row['topic_name'];
+                                      ?>
+                                    </small>
                                 </p>
-                                <p class="card-text">2022年底时，全球房地产行业看起来一片光明。在经合组织的38个成员国中，房价正以50年来的最快速度增长。但不到一年时间，情况就完全不同了。牛津经济研究院预计，其数据库中几乎所有国家明年都将经历经济放缓，这是自2000年以来最普遍的一次房价增长减速，超过一半的国家可能会出现价格彻底收缩，相似情况发生还是在2009年。</p>
+                                <p class="card-text">
+                                  <?php echo $post['description'];?>
+                                </p>
                                 </div>
                             </div>
                           <div class="col-md-7">
-                            <img src="./assets/images/Oxford-Economics-Canadian-Real-Estate-Bubble-Correction.webp" class="img-fluid rounded-start" alt="头条">
+                            <img src="<?php echo BASE_URL . '/assets/images/' . $post['image'];?>" class="img-fluid rounded-start" alt="头条">
                           </div>
                         </div>
                       </div>
@@ -59,7 +90,7 @@ include(ROOT_PATH . "/app/database/db.php");
                         <div class="card-body">
                           <h5 class="card-title"><b>技术笔记</b></h5>
                           <p class="card-text">包括25篇关于计算机学习和实践过程中如何探索解决方案、故障排除和案例学习的文章和笔记 </p>
-                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>" role="button">所有文章</a>
+                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/dashboard/publish/list.php'?>" role="button">所有文章</a>
                         </div>
                       </div>
                     </div>
@@ -69,7 +100,7 @@ include(ROOT_PATH . "/app/database/db.php");
                         <div class="card-body">
                           <h5 class="card-title"><b>数据科学</b></h5>
                           <p class="card-text">内有20篇数据科学分析，人工智能，深度学习，挖掘及机器学习等文章及学习笔记</p>
-                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>" role="button">所有文章</a>
+                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/dashboard/publish/list.php'?>" role="button">所有文章</a>
                         </div>
                       </div>
                     </div>
@@ -79,7 +110,7 @@ include(ROOT_PATH . "/app/database/db.php");
                         <div class="card-body">
                           <h5 class="card-title"><b>UI/UX</b></h5>
                           <p class="card-text">包括10篇关于人机交互(HCI)，UI/UX，平台研究及其他网络交互技术的文章和学习笔记</p>
-                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>" role="button">所有文章</a>
+                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/dashboard/publish/list.php'?>" role="button">所有文章</a>
                         </div>
                       </div>
                     </div>
@@ -89,7 +120,7 @@ include(ROOT_PATH . "/app/database/db.php");
                         <div class="card-body">
                           <h5 class="card-title"><b>自然语言</b></h5>
                           <p class="card-text">内有50篇与人类语言：汉语、英语、古文明语言等相关的研究文章和学习笔记</p>
-                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/dashboard/publish/articlelist.php'?>" role="button">所有文章</a>
+                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/dashboard/publish/list.php'?>" role="button">所有文章</a>
                         </div>
                       </div>
                     </div>
@@ -98,7 +129,107 @@ include(ROOT_PATH . "/app/database/db.php");
 
                 <!--这里是最近发布栏-->
                 <?php include("./app/database/connect.php");?>
-                <?php include(ROOT_PATH . "/app/partials/latestArticle.php") ?>
+
+                <!--这里是最近发布栏-->
+                <div class="container-fluid">
+                  <div class="mt-5 mb-2 p-2 text-center bg-primary text-light">
+                    <h3><b>最新发布</b></h3>
+                  </div>
+                  <?php
+                    $sql = "SELECT * FROM posts WHERE published='1' ORDER BY id DESC LIMIT 6";
+                    $stmt = $pdo->query($sql);
+                    $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                  ?>
+                  <?php foreach($posts as $post): ?>
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="card articleCard">
+                          <div class="row">
+                              <div class="col-md-6">
+                              <img src="<?php echo BASE_URL . '/assets/images/' . $post['image'];?>" class="card-img-top latest-article-img" alt="">
+                              </div>
+                              <div class="col-md-6">
+                                <div class="card-body">
+                                    <p>
+                                      <span class="badge"
+                                      style=
+                                        "background-color:
+                                        <?php 
+                                        $sql = "SELECT t.tag_color AS tag_colors
+                                        FROM posts p
+                                        JOIN topics t ON p.topic_id = t.id
+                                        WHERE p.id = {$post['id']}";
+                                        $stmt = $pdo->query($sql);
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        echo $row['tag_colors'];
+                                        ?>">
+                                      <?php 
+                                        $sql = "SELECT t.name AS topic_name
+                                        FROM posts p
+                                        JOIN topics t ON p.topic_id = t.id
+                                        WHERE p.id = {$post['id']}";
+                                        $stmt = $pdo->query($sql);
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        echo $row['topic_name'];
+                                        ?>
+                                      </span>
+
+                                      <span class="badge" 
+                                      style=
+                                        "background-color:
+                                        <?php 
+                                        $sql = "SELECT t.tag_color AS parent_colors
+                                        FROM posts p
+                                        JOIN topics t ON p.parent_topic_id = t.id
+                                        WHERE p.id = {$post['id']}";
+                                        $stmt = $pdo->query($sql);
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        echo $row['parent_colors'];
+                                        ?>">
+                                        <?php 
+                                        $sql = "SELECT t.name AS topic_parent
+                                        FROM posts p
+                                        JOIN topics t ON p.parent_topic_id = t.id
+                                        WHERE p.id = {$post['id']}";
+                                        $stmt = $pdo->query($sql);
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        echo $row['topic_parent'];
+                                        ?>
+                                      </span>   
+                                    <p>
+                                    <h5 class="card-title"><b><a href="single.html"><?php echo $post['name'];?></a></b></h5>
+                                    <p class="card-text">
+                                    更新于 <small class="text-muted"><?php echo date('Y年n月j日', strtotime($post['update_time']));?>&nbsp;&nbsp;</small>
+                                    <img class="comment-img" src="./assets/images/comment.png" alt="">
+                                    <small class="text-muted">12</small>
+                                    </p>
+                                    <p class="card-text">
+                                      <?php echo mb_strlen($post['description'], 'UTF-8') > 48 ? mb_substr($post['description'], 0, 48, 'UTF-8') . '...' : $post['description'];?>
+                                    </p>
+                                    <p class="card-text">
+                                      <img class="user-img" src="./assets/images/userprofile.png" alt="">
+                                      <small class="text-muted">
+                                      <?php 
+                                        $sql = "SELECT u.username AS user_name
+                                        FROM posts p
+                                        JOIN users u ON p.user_id = u.id
+                                        WHERE p.id = {$post['id']}";
+                                        $stmt = $pdo->query($sql);
+                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        echo $row['user_name'];
+                                      ?>
+                                      </small>
+                                    </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                  </div>
+
+                  <?php endforeach;?>
+
+                </div>
+
                 <!--这里是自我介绍-->
                 <!--这里是订阅-->
                 <div class="row pt-5 pb-5 text-light">

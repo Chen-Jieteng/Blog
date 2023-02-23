@@ -133,4 +133,11 @@ function delete($table, $id){
  $id = delete('users', 2);
  dd($id); */
 
+/* function getPublishedPosts(){
+   global $conn;
+   $sql = "SELECT p.*, u.username FROM posts AS p JOIN users AS u ON p.user_id=u.id WHERE p.published=?";
+   $stmt = executeQuery($sql, ['published' => 1]);
+   $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+   return $records;
+} */
 ?>
