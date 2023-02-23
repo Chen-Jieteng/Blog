@@ -1,44 +1,100 @@
 <!--这里是最近发布栏-->
 <div class="container-fluid">
-    <div class="mt-5 mb-2 p-2 text-center bg-primary text-light"><h3><b>最新发布</b></h3></div>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-        <?php include("./app/database/connect.php");?>
-        <?php
-        $sql="select * from `posts`";
-        $result=mysqli_query($conn,$sql);
-        if($result){
-        while($row=mysqli_fetch_assoc($result)){
-            $id=$row['id'];
-            $topic=$row['topic_id'];
-            $image=$row['image'];
-            $name=$row['name'];
-            $description=$row['description'];
-            $user_id=$row['user_id'];
-            $update_time=$row['update_time'];
-            echo '<div class="col">
-            <div class="card articleCard">
-            <div class="row">
-                <div class="col-md-6">
-                <img src='.$image.' class="card-img-top latest-article-img" alt="...">
-                </div>
-                <div class="col-md-6">
-                <div class="card-body">
-                    <p><span class="badge bg-info">'.$topic.'</span><p>
-                    <h5 class="card-title"><b><a href="article.php?article_id='.$id.'">'.$name.'</a></b></h5>
-                    <p class="card-text">
-                    更新于 <small class="text-muted">'.$update_time.'&nbsp;&nbsp;</small>
-                    <img class="comment-img" src="./assets/images/comment.png" alt="">
-                    <small class="text-muted">12</small>
-                    </p>
-                    <p class="card-text">'.substr($description,0,272).'...</p>
-                    <p class="card-text"><img class="user-img" src="./assets/images/userprofile.png" alt="">&nbsp;&nbsp;<small class="text-muted">'.$user_id.'</small></p>
-                </div>
-                </div>
+    <div class="mt-5 mb-2 p-2 text-center bg-primary text-light">
+    <h3><b>最新发布</b></h3>
+    </div>
+    <?php
+    $sql = "SELECT * FROM posts WHERE published='1' ORDER BY id DESC LIMIT 4";
+    $stmt = $pdo->query($sql);
+    $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+    <div class="row row-cols-1 row-cols-md-2 g-1">
+    <?php $i = 0; foreach($posts as $post): ?>
+    <div class="col">
+        <div class="card articleCard">
+        <div class="row">
+        <div class="col-md-6">
+            <img src="<?php echo BASE_URL . '/assets/images/' . $post['image'];?>" class="card-img-top latest-article-img" alt="">
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+                <p>
+                <span class="badge"
+                style=
+                    "background-color:
+                    <?php 
+                    $sql = "SELECT t.tag_color AS tag_colors
+                    FROM posts p
+                    JOIN topics t ON p.topic_id = t.id
+                    WHERE p.id = {$post['id']}";
+                    $stmt = $pdo->query($sql);
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                    echo $row['tag_colors'];
+                    ?>">
+                <?php 
+                    $sql = "SELECT t.name AS topic_name
+                    FROM posts p
+                    JOIN topics t ON p.topic_id = t.id
+                    WHERE p.id = {$post['id']}";
+                    $stmt = $pdo->query($sql);
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                    echo $row['topic_name'];
+                    ?>
+                </span>
+
+                <span class="badge" 
+                style=
+                    "background-color:
+                    <?php 
+                    $sql = "SELECT t.tag_color AS parent_colors
+                    FROM posts p
+                    JOIN topics t ON p.parent_topic_id = t.id
+                    WHERE p.id = {$post['id']}";
+                    $stmt = $pdo->query($sql);
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                    echo $row['parent_colors'];
+                    ?>">
+                    <?php 
+                    $sql = "SELECT t.name AS topic_parent
+                    FROM posts p
+                    JOIN topics t ON p.parent_topic_id = t.id
+                    WHERE p.id = {$post['id']}";
+                    $stmt = $pdo->query($sql);
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                    echo $row['topic_parent'];
+                    ?>
+                </span>   
+                <p>
+                <h5 class="card-title"><b><a href="post.html"><?php echo $post['name'];?></a></b></h5>
+                <p class="card-text">
+                更新于 <small class="text-muted"><?php echo date('Y年n月j日', strtotime($post['update_time']));?>&nbsp;&nbsp;</small>
+                <img class="comment-img" src="./assets/images/comment.png" alt="">
+                <small class="text-muted">12</small>
+                </p>
+                <p class="card-text">
+                <?php echo mb_strlen($post['description'], 'UTF-8') > 48 ? mb_substr($post['description'], 0, 48, 'UTF-8') . '...' : $post['description'];?>
+                </p>
+                <p class="card-text">
+                <img class="user-img" src="./assets/images/userprofile.png" alt="">
+                <small class="text-muted">
+                <?php 
+                    $sql = "SELECT u.username AS user_name
+                    FROM posts p
+                    JOIN users u ON p.user_id = u.id
+                    WHERE p.id = {$post['id']}";
+                    $stmt = $pdo->query($sql);
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                    echo $row['user_name'];
+                ?>
+                </small>
+                </p>
             </div>
-            </div>
-        </div>';
-        }
-        }
-        ?>
+        </div>
+        </div>
+        </div>
+    </div>
+    <?php $i++; if($i == 4) break; ?>
+    <?php endforeach; ?>
+    </div>
     </div>
 </div>

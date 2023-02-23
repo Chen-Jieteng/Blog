@@ -75,9 +75,9 @@
                 </ul>
             </li>
         </ul>
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="输入想要搜索的信息" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">搜索</button>
+        <form class="d-flex" action="index.php" method="POST">
+            <input class="form-control me-2" type="search" placeholder="请输入关键字" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit" name="search-term">搜索</button>
         </form>
     </div>
 </nav>

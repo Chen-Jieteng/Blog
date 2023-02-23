@@ -140,4 +140,20 @@ function delete($table, $id){
    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
    return $records;
 } */
+
+function searchPosts($term){
+   $match = '%' . $term . '%';
+   global $conn;
+   $sql = "SELECT 
+               p.*, u.username 
+               FROM posts AS p 
+               JOIN users AS u 
+               ON p.user_id=u.id 
+               WHERE p.published=?
+               AND p.name LIKE ? OR p.body LIKE ?";
+
+   $stmt = executeQuery($sql, ['published' => 1, 'name' => $match, "body" => $match]);
+   $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+   return $records;
+}
 ?>
