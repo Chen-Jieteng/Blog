@@ -1,13 +1,11 @@
 <!--这里是最近发布栏-->
-<div class="container-fluid">
-    <div class="mt-5 mb-2 p-2 text-center bg-primary text-light">
-    <h3><b>最新发布</b></h3>
-    </div>
+
     <?php
     $sql = "SELECT * FROM posts WHERE published='1' ORDER BY id DESC LIMIT 4";
     $stmt = $pdo->query($sql);
     $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
+
     <div class="row row-cols-1 row-cols-md-2 g-1">
     <?php $i = 0; foreach($posts as $post): ?>
     <div class="col">
@@ -95,6 +93,5 @@
     </div>
     <?php $i++; if($i == 4) break; ?>
     <?php endforeach; ?>
-    </div>
     </div>
 </div>

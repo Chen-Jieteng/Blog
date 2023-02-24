@@ -4,6 +4,12 @@
 .navbar-collapse > form > button {
     width: 30%;
 }
+.index-post-img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
 .article-categ-img{
     margin-left: auto;
     margin-right: auto;
@@ -12,12 +18,10 @@
     height: 5rem;
 }
 .latest-article-img{
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-top: 3%;
+    margin: 3% 3% 3% 3%;
     border: 1px solid gainsboro;
-    width: 19rem;
-    height: 13rem;
+    width:100%;
+    height:15rem;
     object-fit: cover;
 }
 a{

@@ -43,8 +43,8 @@ if(isset($_POST['search-term'])){
                       $stmt = $pdo->query($sql);
                       $post = $stmt->fetch(PDO::FETCH_ASSOC);
                     ?>
-                    <div class="col-md-12  h-100 d-flex align-items-center justify-content-center">
-                      <div class="card">
+                    <div class="col-md-12 h-100 d-flex align-items-center justify-content-center index-post">
+                      <div class="card p-3">
                         <div class="row g-0">
                             <div class="col-md-5">
                                 <div class="card-body">
@@ -82,7 +82,7 @@ if(isset($_POST['search-term'])){
                                 </div>
                             </div>
                           <div class="col-md-7">
-                            <img src="<?php echo BASE_URL . '/assets/images/' . $post['image'];?>" class="img-fluid rounded-start" alt="头条">
+                            <img src="<?php echo BASE_URL . '/assets/images/' . $post['image'];?>" class="img-fluid rounded-start  index-post-img" alt="头条">
                           </div>
                         </div>
                       </div>
@@ -137,6 +137,10 @@ if(isset($_POST['search-term'])){
                 </div>
 
                 <!--这里是最近发布栏-->
+                <div class="mt-5 mb-2 p-2 text-center bg-primary text-light">
+                  <h3><b>最新发布</b></h3>
+                </div>
+                
                 <?php include(ROOT_PATH . '/app/partials/latestArticle.php');?>
 
                 <!--这里是自我介绍-->

@@ -1,5 +1,8 @@
 <?php include("path.php");
 include(ROOT_PATH . "/app/controllers/posts.php");
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +55,7 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                             </div>
                             <div class="col-md-7">
                                 <div class="row">
-                                    <p><b>文章背景：<br></b><?php echo $post['description'] ;?></p>
+                                    <p><b>摘要：<br></b><?php echo $post['description'] ;?></p>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1">
@@ -69,71 +72,46 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                                             $row = $stmt->fetch(PDO::FETCH_ASSOC);
                                             echo $row['user_name'];
                                         ?><br>
-                                        <b>IP：</b>
-                                        <?php
-                                            $ip = $_SERVER['REMOTE_ADDR'];
-                                            $url = "http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
-                                            $data = file_get_contents($url);
-                                            $location = json_decode($data, true);
-                                            echo $location['data']['region'];
-                                        ;?>
+                                        <b>IP：</b>加拿大
                                     </p>
                                     </div>                                
                                     <div class="col-md-8">
-                                        <p><b>发布时间：</b><?php echo date('Y年n月j日G点i分', strtotime($post['create_time']));?><br>
-                                        <b>更新时间：</b><?php echo date('Y年n月j日G点i分', strtotime($post['update_time']));?></p>
+                                        <p><b>发布时间：</b><?php echo date('Y年 n月j日 G:i', strtotime($post['create_time']));?><br>
+                                        <b>更新时间：</b><?php echo date('Y年 n月j日 G:i', strtotime($post['update_time']));?></p>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-                        <div><?php echo $post['body'];?></div>
-                        <div class="mt-5" style="color:orange"><p>特别声明：以上文章内容仅代表作者本人观点。如有作品版权、内容或其它相关问题请及时联系本站处理。</p></div>
-                    </div>
-
-                    <!--这里是评论区-->
-                    <!-- <div class="row mt-3 mb-3">
-                        <h5>评论列表(3条)</h5>
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="" alt="">
-                            </div>
-                            <div class="col-md-10">
-                                <div class="row">
-                                    <p><b>Edwin</b></p>
+                        <div class="row post-body">
+                            <?php echo nl2br($post['body']);?>
+                        </div>
+                        <div class="row mt-5" style="color:orange">
+                            <p>特别声明：以上文章内容仅代表作者本人观点。如有作品版权、内容或其它相关问题请及时联系本站处理。</p>
+                        </div>
+                        <div class="mt-5 mb-2 p-2 text-center bg-primary text-light">
+                            <h3><b>猜你想看</b></h3>
+                        </div>
+                        <?php include(ROOT_PATH . "/app/partials/latestArticle.php");?>
+                        <div class="row pt-5 pb-5 text-light">
+                            <div class="col-md-12" style="background-color:cornflowerblue">
+                                <div style="text-align:center">
+                                    <div class="row mt-2"><h3>关于订阅</h3></div>
+                                    <div class="row">
+                                        <p>
+                                        欢迎访问我的个人数据博客，如果您觉得满意的话可以通过下面的订阅框，输入个人电子邮箱地址订阅，新文章发布会通过邮件的形式通知您。
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <p>我很欣赏你的文章，求更新</p>
-                                </div>
-                                <div class="row">
-                                    <small class="text-muted">30分钟前&nbsp;加拿大</small>
+                                <div class="row subsribe mb-2">
+                                    <form class="d-flex">
+                                        <input type="email" class="form-control me-2" id="exampleFormControlInput1" placeholder="请输入您的个人邮箱地址">
+                                        <button type="submit" class="btn btn-success">订阅</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-                </div>
-                    
-                <!--这里是最近发布栏-->
-                <?php include(ROOT_PATH . "/app/partials/latestArticle.php") ?>
-            <!--这里是订阅-->
-            <div class="row pt-5 pb-5 text-light">
-                <div class="col-md-12" style="background-color:cornflowerblue">
-                    <div style="text-align:center">
-                        <div class="row mt-2"><h3>关于订阅</h3></div>
-                        <div class="row">
-                            <p>
-                            欢迎访问我的个人数据博客，如果您觉得满意的话可以通过下面的订阅框，输入个人电子邮箱地址订阅，新文章发布会通过邮件的形式通知您。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row subsribe mb-2">
-                        <form class="d-flex">
-                            <input type="email" class="form-control me-2" id="exampleFormControlInput1" placeholder="请输入您的个人邮箱地址">
-                            <button type="submit" class="btn btn-success">订阅</button>
-                        </form>
                     </div>
                 </div>
-            </div>
             <?php include(ROOT_PATH . "/app/partials/footer.php");?>
         </body>
     </html>
