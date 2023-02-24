@@ -49,7 +49,7 @@ if(isset($_POST['search-term'])){
                             <div class="col-md-5">
                                 <div class="card-body">
                                 <p><span class="badge bg-primary">最新发布</span><p>
-                                <h3 class="card-title"><b><a href="single.html">
+                                <h3 class="card-title"><b><a href="post.php?id=<?php echo $post['id'];?>">
                                 <?php echo $post['name'];?>
                               </b></a></h3>
                                 <p class="card-text">

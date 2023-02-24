@@ -1,4 +1,6 @@
-<?php include("path.php");?>
+<?php include("path.php");
+include(ROOT_PATH . "/app/controllers/posts.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,59 +11,88 @@
         </title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>        <link rel="stylesheet" href="./assets/css/index.css">
+        <link rel="stylesheet" href="./assets/css/post.css">
     </head>
     <html>
         <body>
             <div class="container-fluid">
                 <?php include(ROOT_PATH . "/app/partials/header.php");?>
-                <div class="container-fluid">
+                <div class="main-container" style="background-color:#F8F8FF">
                     <div class="row text-light mt-3 mb-3" style="background-color:plum">
                         <div class="col-md-2 pt-3">
-                            <p><b>分类：</b><?php echo $article_topic ;?></p>
+                            <p><b>分类：</b><?php 
+                            $sql = "SELECT t.name AS topic_parent
+                            FROM posts p
+                            JOIN topics t ON p.parent_topic_id = t.id
+                            WHERE p.id = {$post['id']}";
+                            $stmt = $pdo->query($sql);
+                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                            echo $row['topic_parent'];
+                            ?></p>
                         </div>
                         <div class="col-md-10 pt-3">
-                            <p><b>子分类：</b><?php echo $article_subtopic ;?></p>
+                            <p><b>子分类：</b><?php  
+                            $sql = "SELECT t.name AS topic_name
+                            FROM posts p
+                            JOIN topics t ON p.topic_id = t.id
+                            WHERE p.id = {$post['id']}";
+                            $stmt = $pdo->query($sql);
+                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                            echo $row['topic_name'];
+                            ?></p>
                         </div>
                     </div>
-                    <div class="row">
-                        <?php echo '<img src='.$article_image.'>';?>
+                    <div class="row post-img">
+                        <img src="<?php echo BASE_URL . '/assets/images/' . $post['image'];?>" class="img-fluid rounded-start post-img" alt="文章图片">
                     </div>
+                    <div class="post-main">
                         <div class="row">
                             <div class="col-md-5">
-                                <h1 style="font-size:45px"><b><?php echo $article_name ;?></b></h1>
+                                <h1 style="font-size:45px"><b><?php echo $post['name'] ;?></b></h1>
                             </div>
                             <div class="col-md-7">
                                 <div class="row">
-                                    <p><b>文章背景：<br></b><?php echo $article_desc ;?></p>
+                                    <p><b>文章背景：<br></b><?php echo $post['description'] ;?></p>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-1">
                                         <img class="user-img" src="./assets/images/userprofile.png" alt="" style="width:3rem; height:3rem;">
                                     </div>
                                     <div class="col-md-3">
-                                        <p><b>作者：</b><?php echo $article_author ;?><br>
-                                        <b>IP：</b>加拿大</p>
+                                        <p><b>作者：</b>
+                                        <?php 
+                                            $sql = "SELECT u.username AS user_name
+                                            FROM posts p
+                                            JOIN users u ON p.user_id = u.id
+                                            WHERE p.id = {$post['id']}";
+                                            $stmt = $pdo->query($sql);
+                                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                            echo $row['user_name'];
+                                        ?><br>
+                                        <b>IP：</b>
+                                        <?php
+                                            $ip = $_SERVER['REMOTE_ADDR'];
+                                            $url = "http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
+                                            $data = file_get_contents($url);
+                                            $location = json_decode($data, true);
+                                            echo $location['data']['region'];
+                                        ;?>
+                                    </p>
                                     </div>                                
                                     <div class="col-md-8">
-                                        <p><b>发布时间：</b><?php echo $article_timeStamp ;?><br>
-                                        <b>更新时间：</b><?php echo $article_timeUpdate ;?></p>
+                                        <p><b>发布时间：</b><?php echo date('Y年n月j日G点i分', strtotime($post['create_time']));?><br>
+                                        <b>更新时间：</b><?php echo date('Y年n月j日G点i分', strtotime($post['update_time']));?></p>
                                     </div>
                                 </div>
 
                             </div>
-                    </div>
-                    <div class="row mt-3 mb-3">
-                        <?php echo $post('body');?>
-                    </div>
-                    <div style="color:orange">
-                        <p>
-                        特别声明：以上文章内容仅代表作者本人观点。
-                        如有作品版权、内容或其它相关问题请及时联系本站处理。
-                        </p>
+                        </div>
+                        <div><?php echo $post['body'];?></div>
+                        <div class="mt-5" style="color:orange"><p>特别声明：以上文章内容仅代表作者本人观点。如有作品版权、内容或其它相关问题请及时联系本站处理。</p></div>
                     </div>
 
                     <!--这里是评论区-->
-                    <div class="row mt-3 mb-3">
+                    <!-- <div class="row mt-3 mb-3">
                         <h5>评论列表(3条)</h5>
                         <div class="row">
                             <div class="col-md-2">
@@ -79,7 +110,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                     
                 <!--这里是最近发布栏-->

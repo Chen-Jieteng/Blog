@@ -65,7 +65,7 @@
                     ?>
                 </span>   
                 <p>
-                <h5 class="card-title"><b><a href="post.html"><?php echo $post['name'];?></a></b></h5>
+                <h5 class="card-title"><b><a href="post.php?id=<?php echo $post['id'];?>"><?php echo $post['name'];?></a></b></h5>
                 <p class="card-text">
                 更新于 <small class="text-muted"><?php echo date('Y年n月j日', strtotime($post['update_time']));?>&nbsp;&nbsp;</small>
                 <img class="comment-img" src="./assets/images/comment.png" alt="">

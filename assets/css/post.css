@@ -1,0 +1,14 @@
+.post-img > img{
+    height:500px;
+    width: auto;
+    margin: auto;
+    border: 1px solid gainsboro;
+}
+.post-img{
+    padding:1%;
+    margin-bottom: 1%;
+}
+.post_main{
+    display: block;
+    padding: 0 100px 0 100px;
+}
