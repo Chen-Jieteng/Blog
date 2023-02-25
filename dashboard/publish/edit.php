@@ -57,6 +57,11 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                                 </select>
                             </div>
                             <div class="card-text form-floating pb-3">
+                                    <textarea class="form-control" id="description" style="height:100px" name="description" placeholder="摘要，最多100字"><?php echo $description; ?></textarea>  
+                                    <label for="floatingInput" class="text-muted">摘要，最多100字</label>
+                                <small class="text-muted">摘要字数：0/100</small>
+                            </div>
+                            <div class="card-text form-floating pb-3">
                                 <textarea class="form-control" id="body" style="height:150px" name="body" placeholder="此刻你想给大家分享什么？"><?php echo $body; ?></textarea>  
                                 <label for="floatingInput" class="text-muted">此刻你想给大家分享什么？</label>
                             </div>

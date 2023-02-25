@@ -10,6 +10,7 @@ $posts = selectAll($table);
 $errors = array();
 $id = "";
 $name = "";
+$description = "";
 $body = "";
 $topic_id = "";
 //$published = "";
@@ -20,6 +21,8 @@ if(isset($_GET['id'])){
     $name = $post['name'];
     $body = $post['body'];
     $topic_id = $post['topic_id'];
+    $description = $post['description'];
+
 }
 
 if(isset($_GET['delete_id'])){
@@ -75,6 +78,7 @@ if(isset($_POST['add-post'])){
         $name = $_POST['name'];
         $body = $_POST['body'];
         $topic_id = $_POST['topic_id'];
+        $description = $_POST['description'];
         // $published = isset($_POST['published']) ? 1 : 0;
     }
 }
@@ -112,6 +116,7 @@ if(isset($_POST['update-post'])){
         $name = $_POST['name'];
         $body = $_POST['body'];
         $topic_id = $_POST['topic_id'];
+        $description = $_POST['description'];
         // $published = isset($_POST['published']) ? 1 : 0;
     }
 }

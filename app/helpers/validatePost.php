@@ -8,6 +8,9 @@ function validatePost($post){
     if(empty($post['body'])){
         array_push($errors, '*正文为空');
     }
+    if(empty($post['body'])){
+        array_push($errors, '*摘要为空');
+    }
     if(empty($post['topic_id'])){
         array_push($errors, '*未选择标签');
     }
