@@ -46,3 +46,31 @@
               </nav>
         </body>
     </html>
+
+
+    <h5 class="card-header">文章创作</h5>
+    <?php include(ROOT_PATH . "/app/helpers/formErrors.php");?>
+    <form action="create.php" method="POST" enctype="multipart/form-data">
+      <div class="card-body">
+          <div class="pb-3">
+              <h6 class="card-title form-floating">
+                  <input type="text" class="form-control" id="username" name="username" placeholder="用户名：" value="<?php echo $username; ?>">
+                  <label for="username" class="text-muted">请输入用户名：</label>
+              </h6>
+          </div>
+          <div class="pb-3">
+              <h6 class="card-title form-floating">
+                <input type="password" class="form-control" id="password" name="password" placeholder="登录密码：" value="<?php echo $password; ?>">
+                <label for="password" class="text-muted">请输入用户名：</label>
+              </h6>
+          </div>
+        <p>或者<a href="<?php echo BASE_URL . '/signup.php'?>">注册</a></p>
+
+          <div class="pb-3">
+              <small>没有账号？<a href="<?php echo BASE_URL . '/signup.php'?>">点击注册</a></small>
+          </div>
+          <div>
+              <button type="submit" name="login-btn" class="btn btn-big">登录</button>
+          </div>
+      </div>
+  </form>

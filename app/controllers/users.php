@@ -21,7 +21,7 @@ function loginUser($user){
     $_SESSION['type'] = $user['success']; //CSS
 
         if($_SESSION['admin']){
-            header('location: ' . BASE_URL . '/dashboard/userlist.php');
+            header('location: ' . BASE_URL . '/dashboard/admin/userlist.php');
         }
         else{
             header('location: ' . BASE_URL . '/index.php');

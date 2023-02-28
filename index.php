@@ -14,7 +14,7 @@ if(isset($_POST['search-term'])){
 
 ?>
 
-<!DOCTYPE  html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -36,7 +36,7 @@ if(isset($_POST['search-term'])){
                 <?php include(ROOT_PATH . "/app/partials/messages.php");?>
                 <!--这里是头条-->
 
-                <div class="container-fluid">
+                <div class="container">
                   <div class="row pt-3">
                     <?php
                       $sql = "SELECT * FROM posts WHERE published='1' ORDER BY id DESC LIMIT 1";
@@ -91,7 +91,7 @@ if(isset($_POST['search-term'])){
                 </div>
 
                 <!--这里是文章分类栏-->
-                <div class="container-fluid">
+                <div class="container">
                   <div class="row row-cols-1 row-cols-md-4 g-4 pt-5 text-center">
                     <div class="col-md-3">
                       <div class="card categCard">
@@ -137,34 +137,38 @@ if(isset($_POST['search-term'])){
                 </div>
 
                 <!--这里是最近发布栏-->
-                <div class="mt-5 mb-2 p-2 text-center bg-primary text-light">
-                  <h3><b>最新发布</b></h3>
-                </div>
+                  <div class="row mt-5 mb-2 p-2 text-center text-light" style="background-color: cornflowerblue;">
+                      <h3><b>最近发布</b></h3>
+                  </div>
+                  <div class="container">
+                    <?php include(ROOT_PATH . '/app/partials/latestArticle.php');?>
+                  </div>
                 
-                <?php include(ROOT_PATH . '/app/partials/latestArticle.php');?>
-
                 <!--这里是自我介绍-->
                 <!--这里是订阅-->
-                <div class="row pt-5 pb-5 text-light">
-                  <div class="col-md-12" style="background-color:cornflowerblue">
-                    <div style="text-align:center">
-                      <div class="row mt-2"><h3>关于订阅</h3></div>
-                      <div class="row">
-                        <p>
-                        欢迎访问我的个人数据博客，如果您觉得满意的话可以通过下面的订阅框，输入个人电子邮箱地址订阅，新文章发布会通过邮件的形式通知您。
-                        </p>
+                
+                <div class="container-fluid">
+                  <div class="row pt-5 pb-5 text-light">
+                    <div class="col-md-12" style="background-color:cornflowerblue">
+                      <div style="text-align:center">
+                        <div class="row mt-2"><h3>关于订阅</h3></div>
+                        <div class="row">
+                          <p>
+                          欢迎访问我的个人数据博客，如果您觉得满意的话可以通过下面的订阅框，输入个人电子邮箱地址订阅，新文章发布会通过邮件的形式通知您。
+                          </p>
+                        </div>
+                      </div>
+                      <div class="row subsribe mb-2">
+                        <form class="d-flex">
+                          <input type="email" class="form-control me-2" id="exampleFormControlInput1" placeholder="请输入您的个人邮箱地址">
+                          <button type="submit" class="btn btn-success">订阅</button>
+                        </form>
                       </div>
                     </div>
-                    <div class="row subsribe mb-2">
-                      <form class="d-flex">
-                        <input type="email" class="form-control me-2" id="exampleFormControlInput1" placeholder="请输入您的个人邮箱地址">
-                        <button type="submit" class="btn btn-success">订阅</button>
-                      </form>
-                    </div>
                   </div>
-                </div>
-                <!--这里是footers-->
-                <?php include(ROOT_PATH . "/app/partials/footer.php");?>
+                  <!--这里是footers-->
+                  <?php include(ROOT_PATH . "/app/partials/footer.php");?>
+              </div>
             </div>
         </body>
     </html>
