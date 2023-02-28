@@ -1,7 +1,7 @@
 <?php include("path.php");?>
 <?php include(ROOT_PATH . "/app/controllers/users.php");?>
 
-<!DOCTYPE  html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -13,15 +13,11 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>        
         <link rel="stylesheet" href="./assets/css/index.css">
         <link rel="stylesheet" href="./assets/css/login.css">
-        
     </head>
     <body>
-        <!-- PHP codes -->
-
-        <!-- HTML codes -->
         <div class="container-fluid">
             <?php include(ROOT_PATH . "/app/partials/header.php");?>
-            <div class="card" id="login-card" style="width:50%">
+            <div class="card" id="login-card" style="width:50%; margin: 3% auto 3% auto">
                 <h5 class="card-header">用户登录</h5>
                 <?php include(ROOT_PATH . "/app/helpers/formErrors.php");?>
                 <form action="login.php" method="POST">

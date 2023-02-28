@@ -55,33 +55,45 @@
         </form>
     </div>
 </div> -->
+
         <div class="container-fluid">
             <?php include(ROOT_PATH . "/app/partials/header.php");?>
-
-            <div id="signup-form">
-                <form action="signup.php" method="POST">  
-                    <h4>注册</h4>
-                    <?php include(ROOT_PATH . "/app/helpers/formErrors.php");?>
-                    <div>
-                        <label>用户名</label>
-                        <input type="text" name="username" value="<?php echo $username;?>" class="text-input">
+            <div class="card" id="signup-card" style="width:50%; margin: 3% auto 3% auto">
+                <h5 class="card-header">用户注册</h5>
+                <?php include(ROOT_PATH . "/app/helpers/formErrors.php");?>
+                <form action="signup.php" method="POST">
+                    <div class="card-body">
+                        <div class="pb-3">
+                            <h6 class="card-title form-floating">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="用户名：" value="<?php echo $username; ?>">
+                                <label for="username" class="text-muted">用户名：</label>
+                            </h6>
+                        </div>
+                        <div class="pb-3">
+                            <h6 class="card-title form-floating">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="邮箱：" value="<?php echo $email; ?>">
+                                <label for="email" class="text-muted">邮箱：</label>
+                            </h6>
+                        </div>
+                        <div class="pb-3">
+                            <h6 class="card-title form-floating">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="密码：" value="<?php echo $password; ?>">
+                                <label for="password" class="text-muted">密码：</label>
+                            </h6>
+                        </div>
+                        <div class="pb-3">
+                            <h6 class="card-title form-floating">
+                                <input type="password" class="form-control" id="passwordConf" name="passwordConf" placeholder="确认密码：" value="<?php echo $passwordConf; ?>">
+                                <label for="passwordConf" class="text-muted">确认密码：</label>
+                            </h6>
+                        </div>
+                        <div class="pb-3">
+                            <small>已有账号？<a href="<?php echo BASE_URL . '/login.php'?>"><span class="text-muted">点击登录</a></span></small>
+                        </div>
+                        <div>
+                            <button type="submit" name="signup-btn" class="btn btn-primary">注册</button>
+                        </div>
                     </div>
-                    <div>
-                        <label>邮箱</label>
-                        <input type="email" name="email" value="<?php echo $email;?>" class="text-input">
-                    </div>
-                    <div>
-                        <label>密码</label>
-                        <input type="password" name="password" value="<?php echo $password;?>" class="text-input">
-                    </div>
-                    <div>
-                        <label>确认密码</label>
-                        <input type="password" name="passwordConf" value="<?php echo $passwordConf;?>" class="text-input">
-                    </div>
-                    <div>
-                        <button type="submit" name="signup-btn" class="btn btn-big">注册</button>
-                    </div>
-                    <p>或者<a href="<?php echo BASE_URL . '/login.php'?>">登录</a></p>
                 </form>
             </div>
             <?php include(ROOT_PATH . "/app/partials/footer.php");?>
