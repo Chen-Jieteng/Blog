@@ -99,7 +99,7 @@ if(isset($_POST['search-term'])){
                         <div class="card-body">
                           <h5 class="card-title"><b>技术笔记</b></h5>
                           <p class="card-text">包括25篇关于计算机学习和实践过程中如何探索解决方案、故障排除和案例学习的文章和笔记 </p>
-                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/publish.php'?>" role="button">所有文章</a>
+                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/tech.php'?>" role="button">所有文章</a>
                         </div>
                       </div>
                     </div>
@@ -109,7 +109,7 @@ if(isset($_POST['search-term'])){
                         <div class="card-body">
                           <h5 class="card-title"><b>数据科学</b></h5>
                           <p class="card-text">内有20篇数据科学分析，人工智能，深度学习，挖掘及机器学习等文章及学习笔记</p>
-                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/publish.php'?>" role="button">所有文章</a>
+                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/data.php'?>" role="button">所有文章</a>
                         </div>
                       </div>
                     </div>
@@ -117,9 +117,9 @@ if(isset($_POST['search-term'])){
                       <div class="card categCard">
                         <img src="./assets/images/image 3.png" class="card-img-top article-categ-img" alt="...">
                         <div class="card-body">
-                          <h5 class="card-title"><b>UI/UX</b></h5>
-                          <p class="card-text">包括10篇关于人机交互(HCI)，UI/UX，平台研究及其他网络交互技术的文章和学习笔记</p>
-                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/publish.php'?>" role="button">所有文章</a>
+                          <h5 class="card-title"><b>Web前端</b></h5>
+                          <p class="card-text">包括10篇关于Web前端，移动端，人机交互(HCI)，UI/UX，平台研究的文章和学习笔记</p>
+                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/web.php'?>" role="button">所有文章</a>
                         </div>
                       </div>
                     </div>
@@ -129,7 +129,7 @@ if(isset($_POST['search-term'])){
                         <div class="card-body">
                           <h5 class="card-title"><b>自然语言</b></h5>
                           <p class="card-text">内有50篇与人类语言：汉语、英语、古文明语言等相关的研究文章和学习笔记</p>
-                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/publish.php'?>" role="button">所有文章</a>
+                          <a class="btn btn-secondary" href="<?php echo BASE_URL . '/lang.php'?>" role="button">所有文章</a>
                         </div>
                       </div>
                     </div>
