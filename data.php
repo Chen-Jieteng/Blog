@@ -44,7 +44,7 @@ include(ROOT_PATH . "/app/controllers/users.php");
                 <!--这里是最近发布栏-->
                 <div class="container-fluid">
                     <div class="mt-5 mb-2 p-2 text-center bg-primary text-light">
-                        <h3><b>技术笔记</b></h3>
+                        <h3><b>数据科学</b></h3>
                     </div>
                     <?php
                     $sql = "SELECT * FROM posts WHERE published='1'AND parent_topic_id='2' ORDER BY id DESC";

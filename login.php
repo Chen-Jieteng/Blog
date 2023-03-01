@@ -13,6 +13,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>        
         <link rel="stylesheet" href="./assets/css/index.css">
         <link rel="stylesheet" href="./assets/css/login.css">
+
     </head>
     <body>
         <div class="container-fluid">
@@ -31,6 +32,7 @@
                         <div class="pb-3">
                             <h6 class="card-title form-floating">
                                 <input type="password" class="form-control" id="password" name="password" placeholder="登录密码：" value="<?php echo $password; ?>">
+                                qwq
                                 <label for="password" class="text-muted">登录密码：</label>
                             </h6>
                         </div>

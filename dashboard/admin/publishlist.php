@@ -138,12 +138,12 @@ include(ROOT_PATH . "/app/controllers/posts.php");
                                         <?php if($post['published']): ?>
                                             <div>已公开</div>
                                             <div>
-                                                <a href="edit.php?published=0&p_id=<?php echo $post['id'];?>" class="hide">
+                                                <a href="../publish/edit.php?published=0&p_id=<?php echo $post['id'];?>" class="hide">
                                                 仅自己可见</a>
                                             </div>
                                         <?php else: ?>
                                             <div>
-                                                <a href="edit.php?published=1&p_id=<?php echo $post['id'];?>" class="publish">公开</a>
+                                                <a href="../publish/edit.php?published=1&p_id=<?php echo $post['id'];?>" class="publish">公开</a>
                                             </div>
                                             <div>仅自己可见</div>
                                         <?php endif; ?>

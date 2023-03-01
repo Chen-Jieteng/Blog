@@ -46,11 +46,10 @@ a{
     width: 5rem;
 }
 
-.social-media > a > img{
-    width: 7%;
-    height: 7%;
+.social-media img {
+    width: 5%;
 }
-
+  
 .footerbar{
     border-top: 1px solid gainsboro;
 }

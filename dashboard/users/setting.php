@@ -14,8 +14,7 @@ include(ROOT_PATH . "/app/controllers/users.php");
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>        
         <link rel="stylesheet" href="../../assets/css/index.css">
-        <link rel="stylesheet" href="../..//assets/css/login.css">
-        <link rel="stylesheet" href="../..//assets/css/publish.css">
+        <link rel="stylesheet" href="../../assets/css/publish.css">
         <style>
             a{
                 text-decoration: none;
@@ -47,20 +46,20 @@ include(ROOT_PATH . "/app/controllers/users.php");
                     <h4 class="mb-3">用户设置更改</h4>  
                     <form>
                         <div class="mb-3">
-                            <label for="topic-name" class="form-label">新用户名</label>
-                            <input type="text" class="form-control" id="topic-name" aria-describedby="emailHelp">
+                            <label for="username" class="form-label">新用户名</label>
+                            <input type="text" class="form-control" id="username">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-color" class="form-label">更改注册邮箱</label>
-                            <input type="text" class="form-control" id="topic-color" aria-describedby="emailHelp">
+                            <label for="email" class="form-label">更改注册邮箱</label>
+                            <input type="email" class="form-control" id="email">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-type" class="form-label">更改密码</label>
-                            <input type="text" class="form-control" id="topic-type" aria-describedby="emailHelp">
+                            <label for="password" class="form-label">更改密码</label>
+                            <input type="password" class="form-control" id="password">
                         </div>
                         <div class="mb-3">
-                            <label for="topic-parent" class="form-label">确认新密码</label>
-                            <input type="text" class="form-control" id="topic-parent" aria-describedby="emailHelp">
+                            <label for="passwordConf" class="form-label">确认新密码</label>
+                            <input type="text" class="form-control" id="passwordConf">
                         </div>
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">保存更改</button>
