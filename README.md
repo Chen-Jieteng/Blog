@@ -16,7 +16,7 @@ PHP，JavaScript，HTML，CSS（暂定，会持续更新后续功能）
 3. 配置数据库。
 4. 访问网站，注册用户并开始发帖和交流。
 
-#showcase
+# showcase
 https://chencareer.com
 
 # 贡献方式
