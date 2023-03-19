@@ -28,5 +28,25 @@ https://chencareer.com
 本项目基于MIT许可证发布，详情请查看LICENSE文件。
 
 # 更新
-正在考虑更换服务器
- 
+1. 正在考虑更换服务器
+2. Vue转型
+
+# 未来功能修正
+1. 登录密码明文提示
+2. 夜间版：根据本地时间更改
+3. 皮肤
+4. 表格隔行变色效果
+5. 注册登录动态验证
+6. 表单全选和取消全选（用jQuery）
+7. 分类要弄成tab栏切换
+8. 按s键消除搜索栏placeholder
+9. 主页的日历时间（仿照p274的倒计时）
+10. 短信验证（发送短信隔时）
+11. 页面gotop和模块定位功能，P329（要用jQuery和缓慢动画）
+12. user dashboard的左滑菜单，要带有缓慢动画的
+13. 关于轮播图的文章，github也要写（包括PC端和移动端，不用bootstrap）
+14. 全部下拉菜单写成jQuery
+15. 关于购物车的文章，github也要写（包括PC端和移动端，不用bootstrap）
+16. 电梯导航（用jQuery，不用bootstrap）
+17. todolist要在github里面做，并且写文章，github里写的是总结
+18. 所有图都用EChart写，并且要做一个能够编辑EChart到文章的功能
